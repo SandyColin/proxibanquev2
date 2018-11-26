@@ -22,7 +22,9 @@ public class EditServlet extends HttpServlet{
 
 @Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    // Client client = new Client(client.getFirstname(),client.getLastname(),client.getEmail(),client.getAddress());
+    
+	Integer  id= Integer.parseInt(req.getParameter("id"));
+	req.setAttribute("id",id);
 	String  firstname= req.getParameter("firstname");
 	req.setAttribute("firstname",firstname);
 	String  lastname= req.getParameter("lastname");
@@ -32,7 +34,7 @@ public class EditServlet extends HttpServlet{
 	String  address= req.getParameter("address");
 	req.setAttribute("address",address);
 	ClientService service=ClientService.getInstance();
-	service.updateClient(client);
+	service.updateClient(id, firstname,lastname,email,address);
 	resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
 	this.getServletContext().getRequestDispatcher("/WEB-INF/edit.jsp").forward(req, resp);
 
