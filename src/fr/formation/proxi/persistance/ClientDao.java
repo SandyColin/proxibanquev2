@@ -41,8 +41,8 @@ private final MySqlConnection mySqlConn;
 	public Client update(Client entity) {
 		try {
 			Statement st = this.mySqlConn.getConn().createStatement();
-			st.executeUpdate(SqlQueries.UPDATE_CLIENT);
-			
+			String query = String.format(SqlQueries.UPDATE_CLIENT, entity.getFirstname(), entity.getLastname(), entity.getEmail(), entity.getAddress(), entity.getId());
+			st.executeUpdate(query);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
