@@ -148,14 +148,15 @@
 	</div>
 	<div class="monindex">
 		<form method="post" action="">
-			<label for="client">Selectionner un client</label>
+			<div>
+			<label for="client">Selectionner le client n°</label>
 			<select name="client" id="client">
 				<c:forEach var="client" items ="${clients}"> 
-					<option value="id">Client n°${client.id}</option>
+					<option value="idclient">${client.id}</option>
 				</c:forEach>	
 			</select>
-		</form>
-		<form method="post" action="">
+			</div>
+			<div>
 			<label for="action1">Selectionner une action</label>
 			<select name="action1" id="action1">
 				<option value="edit">Modifier les infos du client</option>
@@ -163,8 +164,10 @@
 				<option value="transfer">Faire un virement compte à compte</option>
 					
 			</select>
-		</form>
+			</div>
 		<button>Valider</button>
+		</form>
+		
 	</div>
 
     <!-- Portfolio Grid -->

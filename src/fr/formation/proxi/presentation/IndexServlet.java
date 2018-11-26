@@ -23,11 +23,10 @@ public class IndexServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id = Integer.parseInt(req.getParameter("id"));
+		String strId=req.getParameter("idclient");
+		Integer id = Integer.parseInt(strId);
 		req.setAttribute("id", id);
 		String action=req.getParameter("action1");
-		
-		
 		switch(action) {
 		case "edit" : 
 			resp.sendRedirect(this.getServletContext().getContextPath() + "/edit.html");
