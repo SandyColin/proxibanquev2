@@ -20,5 +20,25 @@ public class IndexServlet extends HttpServlet{
 		req.setAttribute("clients", cs.getAll());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
 	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer id = Integer.parseInt(req.getParameter("id"));
+		req.setAttribute("id", id);
+		String action=req.getParameter("action1");
+		
+		
+		switch(action) {
+		case "edit" : 
+			resp.sendRedirect(this.getServletContext().getContextPath() + "/edit.html");
+			break;
+		case "account" :
+			resp.sendRedirect(this.getServletContext().getContextPath() + "/account.html");
+			break;
+		case "transfer" :
+			resp.sendRedirect(this.getServletContext().getContextPath() + "/transfer.html");
+			break;
+		}
+		
+	}
 
 }
