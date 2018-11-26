@@ -21,7 +21,7 @@ public class MySqlConnection {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proxibanquev2", 
+			this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proxibanquev2?serverTimezone=Europe/Paris", 
 					"root", "root");
 		} catch (SQLException | ClassNotFoundException e) {
 			// Avec librairie log4j LOGGER.erreur(message, e)
