@@ -143,6 +143,7 @@
 					<th class="listecompte">Id</th>
 					<th class="listecompte">Numéro de compte</th>
 					<th class="listecompte">Solde</th>
+					<th class="listecompte">Compte courant</th>
 				</tr>
 			</tfoot>
 		</table>
