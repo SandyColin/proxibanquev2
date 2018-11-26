@@ -42,6 +42,8 @@ private final MySqlConnection mySqlConn;
 		try {
 			Statement st = this.mySqlConn.getConn().createStatement();
 			
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
