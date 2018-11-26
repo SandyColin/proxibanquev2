@@ -41,7 +41,7 @@ private final MySqlConnection mySqlConn;
 	public Client update(Client entity) {
 		try {
 			Statement st = this.mySqlConn.getConn().createStatement();
-			
+			st.executeUpdate(SqlQueries.UPDATE_CLIENT);
 			
 			
 		} catch (SQLException e) {

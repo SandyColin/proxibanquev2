@@ -20,5 +20,7 @@ public class IndexServlet extends HttpServlet{
 		req.setAttribute("clients", cs.getAll());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
 	}
+	
+	
 
 }
