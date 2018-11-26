@@ -112,7 +112,7 @@
     </section>
     <!-- Liste des clients -->
     <div class="monindex">
-		<table class="listeclients">
+		<table class="table table-hover">
 			<caption>Liste des clients </caption>
 			<thead>
 				<tr>
@@ -149,8 +149,8 @@
 	<div class="monindex">
 		<form method="post" action="">
 			<div>
-			<label for="client">Selectionner le client n°</label>
-			<select name="client" id="client">
+			<label for="idclient">Selectionner le client n°</label>
+			<select name="idclient" id="idclient">
 				<c:forEach var="client" items ="${clients}"> 
 					<option value="idclient">${client.id}</option>
 				</c:forEach>	

@@ -40,10 +40,25 @@ public class AccountDao implements Dao<Account>{
 
 
 	@Override
-	public Account read(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Account> read(String id) {
+		List<Account> results = new ArrayList<>();
+		try {
+			Statement st = this.mySqlConn.getConn().createStatement();
+			ResultSet rs = st.executeQuery(String.format(SqlQueries.READ_ACCOUNT, id));
+			while (rs.next()) {
+				String number = rs.getString("number");
+				Float balance = rs.getFloat("balance");
+				boolean savings = rs.getBoolean("savings");
+				results.add(new Account(number, balance, savings));
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return results;
 	}
+
+
 
 	@Override
 	public Account update(Account entity) {

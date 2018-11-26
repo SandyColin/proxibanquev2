@@ -24,8 +24,8 @@ public class IndexServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String strId=req.getParameter("idclient");
-		Integer id = Integer.parseInt(strId);
-		req.setAttribute("id", id);
+		//Integer id = Integer.parseInt(strId);
+		req.setAttribute("id", strId);
 		String action=req.getParameter("action1");
 		switch(action) {
 		case "edit" : 

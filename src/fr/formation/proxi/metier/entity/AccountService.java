@@ -3,7 +3,7 @@ package fr.formation.proxi.metier.entity;
 import java.util.List;
 
 import fr.formation.proxi.persistance.AccountDao;
-import fr.formation.proxi.persistance.ClientDao;
+
 
 public class AccountService {
 
@@ -21,8 +21,8 @@ private static final AccountService INSTANCE = new AccountService();
 	}
 	
 	
-	public List<Account> getAll() {  
-		return this.dao.readAll(); 
+	public List<Account> getAll(String id) {  
+		return this.dao.read(id); 
 	}
 	
 }
