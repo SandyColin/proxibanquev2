@@ -40,17 +40,22 @@ private final MySqlConnection mySqlConn;
 	}
 
 	public Client update(Client entity) {
-		try {
-			Statement st = this.mySqlConn.getConn().createStatement();
-			String query = String.format(SqlQueries.UPDATE_CLIENT, entity.getFirstname(), entity.getLastname(), entity.getEmail(), entity.getAddress(), entity.getId());
-			st.executeUpdate(query);
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		   try {
+	            Statement st = this.mySqlConn.getConn().createStatement();
+	            String queryFirstname = String.format(SqlQueries.UPDATE_CLIENT, "firstname", entity.getFirstname(), entity.getId());
+	            String queryLastname = String.format(SqlQueries.UPDATE_CLIENT, "lastname", entity.getLastname(), entity.getId());
+	            String queryEmail = String.format(SqlQueries.UPDATE_CLIENT, "email", entity.getEmail(), entity.getId());
+	            String queryAddress = String.format(SqlQueries.UPDATE_CLIENT, "address", entity.getAddress(), entity.getId());
+	            st.execute(queryFirstname);
+	            st.execute(queryLastname);
+	            st.execute(queryEmail);
+	            st.execute(queryAddress);
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
 		
 		
-		return null;
+		return entity;
 	}
 	@Override
 	public List<Client> read(Integer id) {
