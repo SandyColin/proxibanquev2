@@ -25,6 +25,8 @@
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
+    
+  	
 
   </head>
 
@@ -42,59 +44,7 @@
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services">Agence et Conseiller</a>
-            </li>
-            <div>
-		<table>
-			<caption>Liste des clients </caption>
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Nom</th>
-					<th>Prénom</th>
-					<th>Email</th>
-					<th>Adresse</th>
-				</tr>
-			</thead>
-			<tbody>
-			<c:forEach var="client" items ="${clients}"> 
-						
-				<tr>	
-					<td>${client.id}</td>
-					<td>${client.lastname}</td>
-					<td>${client.firstname}</td>
-					<td>${client.email}</td>
-					<td>${client.address}</td>
-				</tr>
-			</c:forEach>
-			</tbody>
-			<tfoot>
-				<tr>
-					<th>Id</th>
-					<th>Nom</th>
-					<th>Prénom</th>
-					<th>Email</th>
-					<th>Adresse</th>
-				</tr>
-			</tfoot>
-		</table>
-	</div>
-	<div>
-		<form method="post" action="">
-			<label for="client">Selectionner un client</label>
-			<select name="client" id="client">
-				<c:forEach var="client" items ="${clients}"> 
-					<option value="1">Client n°${client.id}</option>
-				</c:forEach>	
-			</select>
-		</form>
-		<p><a href="edit.html">Modifier les infos du client</a>
-		<a href="account.html">Liste des comptes du client</a>
-		<a href="edit.html">Faire un virement compte à compte</a></p>
-	</div>
-            
-            
-            
-            
+            </li> 
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#portfolio">Service Client</a>
             </li>
@@ -160,6 +110,62 @@
         </div>
       </div>
     </section>
+    <!-- Liste des clients -->
+    <div class="monindex">
+		<table class="listeclients">
+			<caption>Liste des clients </caption>
+			<thead>
+				<tr>
+					<th class="listeclient">Id</th>
+					<th class="listeclient">Nom</th>
+					<th class="listeclient">Prénom</th>
+					<th class="listeclient">Email</th>
+					<th class="listeclient">Adresse</th>
+				</tr>
+			</thead>
+			<tbody>
+			<c:forEach var="client" items ="${clients}"> 
+						
+				<tr>	
+					<td class="listeclient">${client.id}</td>
+					<td class="listeclient">${client.lastname}</td>
+					<td class="listeclient">${client.firstname}</td>
+					<td class="listeclient">${client.email}</td>
+					<td class="listeclient">${client.address}</td>
+				</tr>
+			</c:forEach>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th class="listeclient">Id</th>
+					<th class="listeclient">Nom</th>
+					<th class="listeclient">Prénom</th>
+					<th class="listeclient">Email</th>
+					<th class="listeclient">Adresse</th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<div class="monindex">
+		<form method="post" action="">
+			<label for="client">Selectionner un client</label>
+			<select name="client" id="client">
+				<c:forEach var="client" items ="${clients}"> 
+					<option value="id">Client n°${client.id}</option>
+				</c:forEach>	
+			</select>
+		</form>
+		<form method="post" action="">
+			<label for="action1">Selectionner une action</label>
+			<select name="action1" id="action1">
+				<option value="edit">Modifier les infos du client</option>
+				<option value="account">Liste des comptes du client</option>
+				<option value="transfer">Faire un virement compte à compte</option>
+					
+			</select>
+		</form>
+		<button>Valider</button>
+	</div>
 
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">

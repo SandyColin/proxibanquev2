@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.formation.proxi.metier.entity.ClientService;
+
 public class EditServlet extends HttpServlet{
 
 	
@@ -19,8 +21,15 @@ public class EditServlet extends HttpServlet{
 
 @Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<<<<<<< HEAD
 	
 	
+=======
+	Integer id = Integer.parseInt(req.getParameter("id"));
+	req.setAttribute("id", id);
+	ClientService.getInstance();
+	this.getServletContext().getRequestDispatcher("/WEB-INF/edit.jsp").forward(req, resp);
+>>>>>>> 6fe010a073eff22d497959cd26e6dead226d8796
 	
 }
 
