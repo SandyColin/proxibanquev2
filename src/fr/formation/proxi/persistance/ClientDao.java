@@ -6,10 +6,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 import fr.formation.proxi.metier.entity.Client;
 import fr.formation.proxi.metier.entity.SqlQueries;
 
-public class ClientDao {
+public class ClientDao implements Dao<Client>{
 
 	
 private final MySqlConnection mySqlConn;
@@ -49,6 +50,11 @@ private final MySqlConnection mySqlConn;
 		}
 		
 		
+		return null;
+	}
+	@Override
+	public Client read(Integer id) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }

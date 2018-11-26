@@ -11,8 +11,8 @@
 
   <div class="monindex">
  	 	<form method="post" action="">
-			<input>Nom ${client.lastname}
-			<input>Prénom ${client.lastname}
+			<label>Nom</label><input type="text" value="${client.lastname}"/> 
+			<label>Prénom</label><input type="text" value="${client.lastname}"/> 
 		</form>
 		<table class="listeclients">
 			<caption>Liste des comptes </caption>
