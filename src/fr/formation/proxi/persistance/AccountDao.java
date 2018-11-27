@@ -82,7 +82,7 @@ public class AccountDao implements Dao<Account>{
 	public Account update(Account entity) {
 		try {
             Statement st = this.mySqlConn.getConn().createStatement();
-            String query = String.format(SqlQueries.UPDATE_ACCOUNT, entity.getNumber(),entity.getBalance(), entity.isSavings(), entity.getId());
+            String query = String.format(SqlQueries.UPDATE_ACCOUNT, entity.getNumber(),entity.getBalance(), entity.isSavings() ? "1" : "0", entity.getId());
             st.execute(query);
         } catch (SQLException e) {
             e.printStackTrace();

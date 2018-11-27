@@ -7,26 +7,26 @@ public interface Dao<T> {
 
 /**
 * 
-* Lit les informations d'une entité en BDD.
+* La méthode read() lit les informations d'une entité en BDD.
 * 
 * @param id identifiant unique de l'entité.
-* @return l'entité construite à partir des informations récupérées.
+* @return T l'entité construite à partir des informations récupérées.
 */
-public T read(Integer id);  //dans Hibernate, on utilise que des objets, aucun primitif.
+public T read(Integer id);  
 
 
 /**
-* Récupère toutes les entités d'une table (requête de type SELECT * FROM table). 
+* La méthode readAll() récupère toutes les entités d'une table (àl'aide d'une requête SQL). 
 * 
-* @return Une liste des entités récupérées. 
+* @return List<T>Une liste des entités récupérées. 
 */
 public List<T> readAll();
 
 
 /**
-* Met à jour une entité d'une BDD.
-* @param entity L'entité à mettreà jour avec de nouvelles informations.
-* @return L'entité nouvellement mise à jour. 
+* La méthode update() met à jour une entité d'une BDD.
+* @param entity L'entité à mettre à jour avec de nouvelles informations.
+* @return T L'entité nouvellement mise à jour. 
 */
 public T update(T entity); 
 

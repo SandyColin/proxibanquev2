@@ -1,5 +1,9 @@
 package fr.formation.proxi.metier.entity;
 
+/**
+ * @author Adminl Laila Bouzidi et Sandy Colin
+ *La classe SqlQueries contient toutes les requetes SQL nécessaires au projet
+ */
 public class SqlQueries {
 	public static final String READ_ALL_CLIENT = "SELECT * FROM Client;";
     public static final String READ_CLIENT = "SELECT * from Client where id='%s';";

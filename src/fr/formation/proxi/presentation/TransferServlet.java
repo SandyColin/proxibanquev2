@@ -12,13 +12,20 @@ import org.apache.log4j.Logger;
 import fr.formation.proxi.metier.entity.AccountService;
 import fr.formation.proxi.metier.entity.Client;
 import fr.formation.proxi.metier.entity.ClientService;
-
+/**
+ * @author Adminl Laila Bouzidi et Sandy Colin
+ * La classe TransfertServlet est le point d'entrée lors de l'appel de la page transfer.html
+ */
 public class TransferServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getLogger(TransferServlet.class);
 	
-	@Override
+	/**
+	 * La méthode doGet() reprend l'identifiant client donnée par la page index.html afin de lire ses informations et 
+	 * les redistribue à la page transfer.html pour pouvoir lire les informations concernant les comptes
+	 * @param  req, resp req représente la requete http d'entrée et resp la requete http de sortie(réponse)
+	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer idclient =Integer.parseInt(req.getParameter("id"));
 		Client transfer =ClientService.getInstance().getOne(idclient);
@@ -28,6 +35,12 @@ public class TransferServlet extends HttpServlet{
 		this.getServletContext().getRequestDispatcher("/WEB-INF/transfer.jsp").forward(req, resp);
 	}
 
+	/**
+	 * La méthode doPost() reprend l'identifiant des comptes selectionnées par "le conseiller" afin de lire ses informations et le montant du transfert
+	 * pour vérifier si ce virement est possible. Selon le montant le virement est effectué ou on revient sur la même page
+	 * 
+	 * @param req, resp req représente la requete http d'entrée et resp la requete http de sortie(réponse)
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	Integer iddebit = Integer.parseInt(req.getParameter("iddebit"));
@@ -46,8 +59,7 @@ public class TransferServlet extends HttpServlet{
 	}
 	else 
 	{
-	
-	//resp.sendRedirect(this.getServletContext().getContextPath() + "/account.html?id="+id);}
-	resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");}
+		this.doGet(req, resp);
+	}
 	}
 }
