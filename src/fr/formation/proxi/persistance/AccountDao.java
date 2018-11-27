@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.formation.proxi.metier.entity.Account;
+import fr.formation.proxi.metier.entity.Client;
 import fr.formation.proxi.metier.entity.SqlQueries;
 
 public class AccountDao implements Dao<Account>{
@@ -81,9 +82,28 @@ public class AccountDao implements Dao<Account>{
 
 	@Override
 	public Account read(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		Account results = null;
+		try {
+			Statement st = this.mySqlConn.getConn().createStatement();
+			ResultSet rs = st.executeQuery(String.format(SqlQueries.READ, id));
+			while (rs.next()) {
+				Integer id_account =rs.getInt("id");
+				String number = rs.getString("number");
+				float balance = rs.getFloat("balance");
+				boolean saving = rs.getBoolean("saving");
+				
+		results = new Account(id_account,number,balance,saving);
+			
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return results;
+		
 	}
 
+	
+	
 
 }
