@@ -165,7 +165,7 @@
 					
 			</select>
 			</div>
-		<button>Valider</button>
+		<button class="btn btn-primary">Valider</button>
 		</form>
 		
 	</div>

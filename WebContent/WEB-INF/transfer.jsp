@@ -139,18 +139,18 @@
 	<div class="monindex">
 		<form method="post" action="">
 			<div>
-			<label for="debit">Selectionner le compte à débiter : </label>
-			<select name="debit" id="debit">
+			<label for="iddebit">Selectionner le compte à débiter : </label>
+			<select name="iddebit" id="iddebit">
 				<c:forEach var="account" items ="${accounts}"> 
-					<option value="debit">${account.id}</option>
+					<option value="${account.id}">${account.number}</option>
 				</c:forEach>	
 			</select>
 			</div>
 			<div>
-			<label for="credit">Selectionner le compte à créditer : </label>
-			<select name="credit" id="credit">
+			<label for="idcredit">Selectionner le compte à créditer : </label>
+			<select name="idcredit" id="idcredit">
 				<c:forEach var="account" items ="${accounts}"> 
-					<option value="debit">${account.id}</option>
+					<option value="${account.id}">${account.number}</option>
 				</c:forEach>
 					
 			</select>
@@ -158,11 +158,11 @@
 			<div>
 			<p>
 			<label for="montant">Montant : </label>
-				<input type="number" name ="montant">Euros
+				<input type="number" name ="montant" id="montant">Euros
 			
 			</p>
 			</div>
-		<button>Valider</button>
+		<button class="btn btn-primary">Valider</button>
 		</form>
 		
 	</div>
