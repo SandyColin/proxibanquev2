@@ -123,7 +123,7 @@
 					<th class="listecompte">Id</th>
 					<th class="listecompte">Numéro de compte</th>
 					<th class="listecompte">Solde</th>
-					<th class="listecompte">Compte courant</th>
+					<th class="listecompte">Compte épargne</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -143,7 +143,7 @@
 					<th class="listecompte">Id</th>
 					<th class="listecompte">Numéro de compte</th>
 					<th class="listecompte">Solde</th>
-					<th class="listecompte">Compte courant</th>
+					<th class="listecompte">Compte épargne</th>
 				</tr>
 			</tfoot>
 		</table>

@@ -112,31 +112,53 @@
     </section>
     <!-- Liste des clients -->
     <div class="monindex">
-		
+		<table class="table table-hover">
+			<caption>Liste des comptes </caption>
+			<thead>
+				<tr>
+					<th class="listecompte">Id</th>
+					<th class="listecompte">Numéro de compte</th>
+					<th class="listecompte">Solde</th>
+					<th class="listecompte">Compte épargne</th>
+				</tr>
+			</thead>
+			<tbody>
+			<c:forEach var="account" items ="${accounts}"> 
+						
+				<tr>	
+					<td class="listecompte">${account.id}</td>
+					<td class="listecompte">${account.number}</td>
+					<td class="listecompte">${account.balance}</td>
+					<td class="listecompte">${account.savings}</td>
+					
+				</tr>
+			</c:forEach>
+			</tbody>
+			</table>
 	</div>
 	<div class="monindex">
 		<form method="post" action="">
 			<div>
-			<label for="debit">Selectionner le compte à débiter</label>
+			<label for="debit">Selectionner le compte à débiter : </label>
 			<select name="debit" id="debit">
 				<c:forEach var="account" items ="${accounts}"> 
-					<option value="debit">${account.number}</option>
+					<option value="debit">${account.id}</option>
 				</c:forEach>	
 			</select>
 			</div>
 			<div>
-			<label for="credit">Selectionner le compte à créditer</label>
+			<label for="credit">Selectionner le compte à créditer : </label>
 			<select name="credit" id="credit">
 				<c:forEach var="account" items ="${accounts}"> 
-					<option value="debit">${account.number}</option>
+					<option value="debit">${account.id}</option>
 				</c:forEach>
 					
 			</select>
 			</div>
 			<div>
 			<p>
-			<label for="montant">Montant</label>
-				<input type="number" name ="montant"/>
+			<label for="montant">Montant : </label>
+				<input type="number" name ="montant">Euros
 			
 			</p>
 			</div>

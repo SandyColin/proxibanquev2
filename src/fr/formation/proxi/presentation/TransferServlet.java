@@ -15,9 +15,9 @@ public class TransferServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id =req.getParameter("id");
+		Integer idclient =Integer.parseInt(req.getParameter("idclient"));
 		AccountService as=AccountService.getInstance();
-		req.setAttribute("accounts", as.getAll(id));
+		req.setAttribute("accounts", as.getAll(idclient));
 		this.getServletContext().getRequestDispatcher("/WEB-INF/transfer.jsp").forward(req, resp);
 	}
 
