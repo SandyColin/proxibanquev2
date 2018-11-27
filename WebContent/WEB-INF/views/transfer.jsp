@@ -136,6 +136,11 @@
 			</tbody>
 			</table>
 	</div>
+	<c:if test="${not empty message }">
+			<div style="color:red">
+				 ${message}		
+			</div>
+		</c:if>
 	<div class="monindex">
 		<form method="post" action="">
 			<div>

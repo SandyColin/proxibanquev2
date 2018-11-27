@@ -5,19 +5,28 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import fr.formation.proxi.metier.entity.Account;
-import fr.formation.proxi.metier.entity.Client;
 import fr.formation.proxi.metier.entity.SqlQueries;
 
+/**
+ * {@InheritDoc}
+ * La classe AccountDao implémente l'interface Dao.
+ * @author Sandy&laila
+ *
+ */
 public class AccountDao implements Dao<Account>{
 	
 	private final MySqlConnection mySqlConn;
-	
+	/**
+	 * Constructeur par défaut.
+	 */
 	public AccountDao() {
 		this.mySqlConn = MySqlConnection.getInstance();
 	}
-	
+	/**
+	 * Méthode permettant d'afficher tout les comptes
+	 * @return une liste de compte avec toute les propriétees 
+	 */
 	public List<Account> readAll() {
 		List<Account> results = new ArrayList<>();
 		try {
@@ -38,7 +47,11 @@ public class AccountDao implements Dao<Account>{
 		return results;
 	}
 
-
+/**
+ * Méthode permettant d'afficher la liste des comptes d'un client à partir de son identifiant.
+ * @param idclient l'identifiant du client.
+ * @return un objet de type List<Account> qui represente la liste des comptes d'un client.
+ */
 
 	public List<Account> read1(Integer idclient) {
 		List<Account> results = new ArrayList<>();
@@ -59,19 +72,18 @@ public class AccountDao implements Dao<Account>{
 		return results;
 	}
 
+/**
+ * Méthode permettant de mettre à jour un compte.
+ * @param entity représente le compte qu'on veut mettre à jour.
+ * @return un objet de type Account (compte mise à jour)
+ */
 
-
-	@Override
+	
 	public Account update(Account entity) {
 		try {
             Statement st = this.mySqlConn.getConn().createStatement();
-            String queryNumber = String.format(SqlQueries.UPDATE_ACCOUNT, "Number", entity.getNumber(), entity.getId());
-            String queryBalance = String.format(SqlQueries.UPDATE_ACCOUNT, "Balance", entity.getBalance(), entity.getId());
-            String querySavings = String.format(SqlQueries.UPDATE_ACCOUNT, "Savingsl", entity.isSavings(), entity.getId());
-            st.execute(queryNumber);
-            st.execute(queryBalance);
-            st.execute(querySavings);
-            
+            String query = String.format(SqlQueries.UPDATE_ACCOUNT, entity.getNumber(),entity.getBalance(), entity.isSavings(), entity.getId());
+            st.execute(query);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -80,23 +92,26 @@ public class AccountDao implements Dao<Account>{
 	return entity;
 	}
 
-	@Override
+/**
+ * Méthode permettant de lire un compte à partir d'un identifiant de compte.
+ * @param id c'est l'identifiant du compte qu'on souhaite lire.
+ * @return un objet de type Account.
+ */
 	public Account read(Integer id) {
 		Account results = null;
 		try {
 			Statement st = this.mySqlConn.getConn().createStatement();
 			ResultSet rs = st.executeQuery(String.format(SqlQueries.READ, id));
-			while (rs.next()) {
-				Integer id_account =rs.getInt("id");
-				String number = rs.getString("number");
-				float balance = rs.getFloat("balance");
-				boolean saving = rs.getBoolean("saving");
-				
-		results = new Account(id_account,number,balance,saving);
 			
-
-			}
-		} catch (SQLException e) {
+				rs.next();
+				String number = rs.getString("number");
+				Float balance = rs.getFloat("balance");
+				boolean savings = rs.getBoolean("savings");
+				
+		results = new Account(id,number,balance,savings);
+				
+		} 
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return results;
