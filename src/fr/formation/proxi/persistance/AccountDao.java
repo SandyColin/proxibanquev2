@@ -65,13 +65,8 @@ public class AccountDao implements Dao<Account>{
 	public Account update(Account entity) {
 		try {
             Statement st = this.mySqlConn.getConn().createStatement();
-            String queryNumber = String.format(SqlQueries.UPDATE_ACCOUNT, "Number", entity.getNumber(), entity.getId());
-            String queryBalance = String.format(SqlQueries.UPDATE_ACCOUNT, "Balance", entity.getBalance(), entity.getId());
-            String querySavings = String.format(SqlQueries.UPDATE_ACCOUNT, "Savingsl", entity.isSavings(), entity.getId());
-            st.execute(queryNumber);
-            st.execute(queryBalance);
-            st.execute(querySavings);
-            
+            String query = String.format(SqlQueries.UPDATE_ACCOUNT, entity.getNumber(),entity.getBalance(), entity.isSavings(), entity.getId());
+            st.execute(query);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -86,17 +81,16 @@ public class AccountDao implements Dao<Account>{
 		try {
 			Statement st = this.mySqlConn.getConn().createStatement();
 			ResultSet rs = st.executeQuery(String.format(SqlQueries.READ, id));
-			while (rs.next()) {
-				Integer id_account =rs.getInt("id");
-				String number = rs.getString("number");
-				float balance = rs.getFloat("balance");
-				boolean saving = rs.getBoolean("saving");
-				
-		results = new Account(id_account,number,balance,saving);
 			
-
-			}
-		} catch (SQLException e) {
+				rs.next();
+				String number = rs.getString("number");
+				Float balance = rs.getFloat("balance");
+				boolean savings = rs.getBoolean("savings");
+				
+		results = new Account(id,number,balance,savings);
+				
+		} 
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return results;

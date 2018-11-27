@@ -27,24 +27,21 @@ private static final AccountService INSTANCE = new AccountService();
 
 	public boolean transfer(Integer iddebit, Integer idcredit,Float montant) {
 		Account debit = this.dao.read(iddebit);
-		if (debit.getBalance()-montant<0) return false;
-
-		this.dao.read(iddebit);
-		if (this.dao.read(iddebit).getBalance()-montant<0) return false;
-
-				
+		Account credit = this.dao.read(idcredit);
+		Float soldeDispo = debit.getBalance();
+		if (soldeDispo-montant<0) return false;
 		else {
-			this.dao.read(iddebit).setBalance(this.dao.read(iddebit).getBalance()-montant);
-			this.dao.read(idcredit).setBalance(this.dao.read(idcredit).getBalance()-montant);
-			this.dao.update(this.dao.read(iddebit));
-			this.dao.update(this.dao.read(idcredit));
+			debit.setBalance(soldeDispo-montant);
+			credit.setBalance(soldeDispo+montant);
+			
+			this.updateAccount(debit);
+			this.updateAccount(credit);
 			return true;
 		}
 		
 		
 	}
-	public void updateAccount(Integer id, String number, Float balance, boolean savings) {
-		Account account = new Account(id, number, balance, savings);
+	public void updateAccount(Account account) {
 		 this.dao.update(account);
 	}
 }
