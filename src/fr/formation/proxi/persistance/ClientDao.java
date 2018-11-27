@@ -61,7 +61,7 @@ private final MySqlConnection mySqlConn;
 	
 	@Override
 	public List<Client> read(Integer id) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 }
