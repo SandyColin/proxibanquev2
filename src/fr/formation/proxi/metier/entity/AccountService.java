@@ -26,7 +26,7 @@ private static final AccountService INSTANCE = new AccountService();
 	}
 	public boolean transfer() {
 		float montant;
-		if (AccountDao.getBalance()-montant>0) return true;
+		if (Account.getBalance()-montant>0) return true;
 				
 		else
 		return false;
