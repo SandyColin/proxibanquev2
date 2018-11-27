@@ -25,12 +25,12 @@ private static final AccountService INSTANCE = new AccountService();
 		return this.dao.read1(id); 
 	}
 	public boolean transfer(Integer iddebit, Integer idcredit,Float montant) {
-		this.dao.read(iddebit);
-		if (this.dao.read(iddebit).getBalance()-montant<0) return false;
+		Account debit = this.dao.read(iddebit);
+		if (debit.getBalance()-montant<0) return false;
 				
 		else {
 			this.dao.read(iddebit).setBalance(this.dao.read(iddebit).getBalance()-montant);
-			this.dao.read(iddebit).setBalance(this.dao.read(idcredit).getBalance()-montant);
+			this.dao.read(idcredit).setBalance(this.dao.read(idcredit).getBalance()-montant);
 			this.dao.update(this.dao.read(iddebit));
 			this.dao.update(this.dao.read(idcredit));
 			return true;
