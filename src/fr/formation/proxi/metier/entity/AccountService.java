@@ -24,15 +24,11 @@ private static final AccountService INSTANCE = new AccountService();
 	public List<Account> getAll(Integer id) {  
 		return this.dao.read1(id); 
 	}
-<<<<<<< HEAD
-	public boolean transfer() {
-		float montant;
-		if (Account.getBalance()-montant>0) return true;
-=======
+
 	public boolean transfer(Integer iddebit, Integer idcredit,Float montant) {
 		this.dao.read(iddebit);
 		if (this.dao.read(iddebit).getBalance()-montant<0) return false;
->>>>>>> f84a41918f180e973d87b7340159598bb3591060
+
 				
 		else {
 			this.dao.read(iddebit).setBalance(this.dao.read(iddebit).getBalance()-montant);
