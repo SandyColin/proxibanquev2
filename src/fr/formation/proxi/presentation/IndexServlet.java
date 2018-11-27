@@ -25,7 +25,7 @@ public class IndexServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ClientService cs=ClientService.getInstance();
 		req.setAttribute("clients", cs.getAll());
-		this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
 	}
 
 	@Override
@@ -36,7 +36,6 @@ public class IndexServlet extends HttpServlet{
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id=Integer.parseInt(req.getParameter("id"));
-		//Integer id = Integer.parseInt(strId);
 		req.setAttribute("id", id);
 		String action=req.getParameter("action1");
 		switch(action) {

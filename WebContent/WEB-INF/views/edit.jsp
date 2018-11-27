@@ -139,13 +139,15 @@
 						name="address" id="address" required/>
 				</div>
 				<div class="col">
-					<button type="submit" class="btn btn-primary" required>Modifier</button>
+					<button type="submit" class="btn btn-primary" >Modifier</button>
 				</div>
 			</div>
 	
 
 
 </form>
+<c:url var="indexUrl" value="/"/>
+<p><a href="${indexUrl}"> Revenir au menu principal</a></p>
 </div>		
 
     <!-- Portfolio Grid -->

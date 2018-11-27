@@ -28,7 +28,7 @@ public class EditServlet extends HttpServlet{
 	Integer  id= Integer.parseInt(req.getParameter("id"));
 	Client modify =ClientService.getInstance().getOne(id);
 	req.setAttribute("client", modify);
-	this.getServletContext().getRequestDispatcher("/WEB-INF/edit.jsp").forward(req, resp);
+	this.getServletContext().getRequestDispatcher("/WEB-INF/views/edit.jsp").forward(req, resp);
 	}
 
 @Override

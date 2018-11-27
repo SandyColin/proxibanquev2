@@ -33,7 +33,7 @@ public class AccountServlet extends HttpServlet{
 		req.setAttribute("client", modify);
 		AccountService as=AccountService.getInstance();
 		req.setAttribute("accounts", as.getAll(idclient));
-		this.getServletContext().getRequestDispatcher("/WEB-INF/account.jsp").forward(req, resp);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/views/account.jsp").forward(req, resp);
 	}
 	
 	

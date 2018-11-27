@@ -32,7 +32,7 @@ public class TransferServlet extends HttpServlet{
 		req.setAttribute("client", transfer);
 		AccountService as=AccountService.getInstance();
 		req.setAttribute("accounts", as.getAll(idclient));
-		this.getServletContext().getRequestDispatcher("/WEB-INF/transfer.jsp").forward(req, resp);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/views/transfer.jsp").forward(req, resp);
 	}
 
 	/**

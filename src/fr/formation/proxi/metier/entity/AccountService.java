@@ -43,7 +43,7 @@ private static final AccountService INSTANCE = new AccountService();
      * @param iddebit numéro de compte à débiter
      * @param idcredit numéro de compte à créditer
      * @param montant le montant à créditer 
-     * @return 
+     * @return boolean retourne vrai si le virement est effectué, non sinon
      */
 	public boolean transfer(Integer iddebit, Integer idcredit,Float montant) {
 
@@ -63,6 +63,10 @@ private static final AccountService INSTANCE = new AccountService();
 		
 		
 	}
+	/**
+	 * La méthode updateAccount() permet de mettre à jour un compte en allant chercher la méthode de la dao
+	 * @param account Un compte de type Account
+	 */
 	public void updateAccount(Account account) {
 		 this.dao.update(account);
 	}
