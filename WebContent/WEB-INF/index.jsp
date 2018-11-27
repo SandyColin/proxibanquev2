@@ -149,7 +149,7 @@
 	<div class="monindex" >
 		<form method="post" action="">
 			<div style="justify-content : center">
-			<label for="id">Selectionner le client n°</label>
+			<label for="id">Selectionner le client :</label>
 			<select name="id" id="id">
 				<c:forEach var="client" items ="${clients}"> 
 					<option value="${client.id}">${client.firstname} ${client.lastname}</option>

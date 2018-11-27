@@ -12,7 +12,7 @@ public interface Dao<T> {
 * @param id identifiant unique de l'entité.
 * @return l'entité construite à partir des informations récupérées.
 */
-public List<T> read(Integer id);  //dans Hibernate, on utilise que des objets, aucun primitif.
+public T read(Integer id);  //dans Hibernate, on utilise que des objets, aucun primitif.
 
 
 /**

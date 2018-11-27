@@ -22,7 +22,7 @@ private static final AccountService INSTANCE = new AccountService();
 	
 	
 	public List<Account> getAll(Integer id) {  
-		return this.dao.read(id); 
+		return this.dao.read1(id); 
 	}
 	public boolean transfer() {
 		float montant;

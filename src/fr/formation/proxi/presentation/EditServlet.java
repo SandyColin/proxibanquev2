@@ -17,12 +17,15 @@ public class EditServlet extends HttpServlet{
 	
 @Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	Integer  id= Integer.parseInt(req.getParameter("id"));
+	ClientService.getInstance();
+	req.setAttribute("client", id);
 	this.getServletContext().getRequestDispatcher("/WEB-INF/edit.jsp").forward(req, resp);
 	}
 
 @Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    
+	ClientService service=ClientService.getInstance();
 	Integer  id= Integer.parseInt(req.getParameter("id"));
 	req.setAttribute("id",id);
 	String  firstname= req.getParameter("firstname");
@@ -33,7 +36,7 @@ public class EditServlet extends HttpServlet{
 	req.setAttribute("email",email);
 	String  address= req.getParameter("address");
 	req.setAttribute("address",address);
-	ClientService service=ClientService.getInstance();
+	
 	service.updateClient(id, firstname,lastname,email,address);
 	resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
 
