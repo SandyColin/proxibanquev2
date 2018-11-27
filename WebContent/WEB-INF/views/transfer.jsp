@@ -112,8 +112,9 @@
     </section>
     <!-- Liste des clients -->
     <div class="monindex">
+    <h2 style="text-align:center">Liste des comptes </h2>
 		<table class="table table-hover">
-			<caption>Liste des comptes </caption>
+			
 			<thead>
 				<tr>
 					<th class="listecompte">Id</th>
@@ -137,14 +138,14 @@
 			</table>
 	</div>
 	<c:if test="${not empty message }">
-			<div style="color:red">
+			<div style="color:red;text-align:center;size:x-large">
 				 ${message}		
 			</div>
 		</c:if>
-	<div class="monindex">
+	<div class="monindex" style="text-align:center">
 		<form method="post" action="">
 			<div>
-			<label for="iddebit">Selectionner le compte à débiter : </label>
+			<br><label for="iddebit">Selectionner le compte à débiter : </label>
 			<select name="iddebit" id="iddebit">
 				<c:forEach var="account" items ="${accounts}"> 
 					<option value="${account.id}">${account.number}</option>
@@ -152,7 +153,7 @@
 			</select>
 			</div>
 			<div>
-			<label for="idcredit">Selectionner le compte à créditer : </label>
+			<br><label for="idcredit">Selectionner le compte à créditer : </label>
 			<select name="idcredit" id="idcredit">
 				<c:forEach var="account" items ="${accounts}"> 
 					<option value="${account.id}">${account.number}</option>
@@ -160,16 +161,18 @@
 					
 			</select>
 			</div>
-			<div>
-			<p>
+			<div style="text-align:center">
+			<br><p>
 			<label for="montant">Montant : </label>
 				<input type="number" name ="montant" id="montant">Euros
 			
 			</p>
+			<button class="btn btn-primary">Valider</button>
 			</div>
-		<button class="btn btn-primary">Valider</button>
-		</form>
 		
+		</form>
+	<c:url var="indexUrl" value="/"/>
+<br><h4 style="text-align:center"><a href="${indexUrl}"> Revenir au menu principal</a></h4>	
 	</div>
 
     <!-- Portfolio Grid -->

@@ -114,12 +114,12 @@
  
 	<div>
 <form method="post">
-			<legend>Modification du client</legend>
+			<legend style="text-align:center">Modification du client</legend>
 			<div class="form-row">
 				
 				
 				<div class="col">
-				    <label for ="firstname">Prénom:</label>
+				    <label for ="firstname">Prénom</label>
 					<input type="text" class="form-control" value="${client.firstname}"
 						name="firstname" id="firstname" required/>
 				</div>
@@ -136,18 +136,18 @@
 				<div class="col">
 				    <label for="address">Adresse</label>
 					<input type="text" class="form-control" value="${client.address}"
-						name="address" id="address" required/>
+						name="address" id="address" required/><br>
 				</div>
-				<div class="col">
+				
+			</div>
+	<div style="text-align:center">
 					<button type="submit" class="btn btn-primary" >Modifier</button>
 				</div>
-			</div>
-	
 
 
 </form>
 <c:url var="indexUrl" value="/"/>
-<p><a href="${indexUrl}"> Revenir au menu principal</a></p>
+<br><h4 style="text-align:center"><a href="${indexUrl}"> Revenir au menu principal</a></h4>
 </div>		
 
     <!-- Portfolio Grid -->

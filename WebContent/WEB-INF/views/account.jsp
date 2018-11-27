@@ -112,12 +112,13 @@
     </section>
     <!-- Liste des comptes -->
  <div class="monindex">
- 	 	<form method="post" action="">
-			<label>Nom</label><input type="text" value="${client.lastname}"/> 
-			<label>Prénom</label><input type="text" value="${client.firstname}"/> 
+ 	 	<form method="post" action="" style="text-align:center">
+			<label>Nom </label><input type="text" value="${client.lastname}"/> 
+			<label>Prénom </label><input type="text" value="${client.firstname}"/> 
 		</form>
+		<h2 style="text-align:center">Liste des comptes </h2>
 		<table class="table table-hover">
-			<caption>Liste des comptes </caption>
+			
 			<thead>
 				<tr>
 					<th class="listecompte">Id</th>
@@ -147,6 +148,8 @@
 				</tr>
 			</tfoot>
 		</table>
+		<c:url var="indexUrl" value="/"/>
+<h4 style="text-align:center"><a href="${indexUrl}"> Revenir au menu principal</a></h4>
 	</div>
 
     <!-- Portfolio Grid -->

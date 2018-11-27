@@ -111,9 +111,11 @@
       </div>
     </section>
     <!-- Liste des clients -->
+    
     <div class="monindex" >
+    <h2 class="section-heading text-uppercase" style="text-align:center">Liste des clients </h2>
 		<table class="table table-hover">
-			<caption>Liste des clients </caption>
+			
 			<thead>
 				<tr>
 					<th class="listeclient">Id</th>
@@ -148,7 +150,7 @@
 	</div>
 	<div class="monindex" >
 		<form method="post" action="">
-			<div style="justify-content : center">
+			<div style="text-align:center">
 			<label for="id">Selectionner le client :</label>
 			<select name="id" id="id">
 				<c:forEach var="client" items ="${clients}"> 
@@ -156,7 +158,7 @@
 				</c:forEach>	
 			</select>
 			</div>
-			<div style="justify-content : center">
+			<div style="text-align:center">
 			<label for="action1">Selectionner une action</label>
 			<select name="action1" id="action1">
 				<option value="edit">Modifier les infos du client</option>
@@ -165,7 +167,9 @@
 					
 			</select>
 			</div>
-		<button class="btn btn-primary">Valider</button>
+			<div style="text-align:center">
+		<button class="btn btn-primary" style="text-align:center">Valider</button>
+		</div>
 		</form>
 		
 	</div>

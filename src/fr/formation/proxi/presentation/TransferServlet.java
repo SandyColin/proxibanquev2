@@ -50,7 +50,7 @@ public class TransferServlet extends HttpServlet{
 	req.setAttribute("iddebit", iddebit);
 	req.setAttribute("idcredit", idcredit);
 	req.setAttribute("montant", montant);
-	String message = "Le montant est supérieur au solde disponible. Le virement ne peut pas avoir lieu";
+	String message = "Le virement ne peut pas avoir lieu. Soit le montant est supérieur au solde disponible, soit vous avez mis le même compte en débiteur et créditeur ";
 	
 	if (!as.transfer(iddebit, idcredit, montant)) {
 		TransferServlet.LOGGER.info(message);
