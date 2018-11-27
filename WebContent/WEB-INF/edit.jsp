@@ -117,22 +117,19 @@
 			<legend>Modification du client</legend>
 			<div class="form-row">
 				
+				
 				<div class="col">
-				    <label for="id">Identifiant</label>
-					<input type="hidden" class="form-control" value="${client.id}"name="id" id="id" required />
-				</div>
-				<div class="col">
-				    <label for ="firstname">Nom:</label>
+				    <label for ="firstname">Prénom:</label>
 					<input type="text" class="form-control" value="${client.firstname}"
 						name="firstname" id="firstname" required/>
 				</div>
 				<div class="col">
-				    <label for="Prénom">Prénom</label>
+				    <label for="Prénom">Nom</label>
 					<input type="text" class="form-control" value="${client.lastname}"
 						name="lastname" id="lastname" required/>
 				</div>
 				<div class="col">
-				    <label for="email">email</label>
+				    <label for="email">Email</label>
 					<input type="email" class="form-control" value="${client.email}"
 						name="email" id="email" required/>
 				</div>

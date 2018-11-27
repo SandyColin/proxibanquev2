@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.formation.proxi.metier.entity.Account;
 import fr.formation.proxi.metier.entity.Client;
 import fr.formation.proxi.metier.entity.SqlQueries;
 
@@ -60,8 +61,24 @@ private final MySqlConnection mySqlConn;
 	
 	
 	@Override
-	public Client read(Integer id) {
-		
-		return null;
+	public Client read(Integer idclient) {
+		Client results = null;
+		try {
+			Statement st = this.mySqlConn.getConn().createStatement();
+			ResultSet rs = st.executeQuery(String.format(SqlQueries.READ_CLIENT, idclient));
+			while (rs.next()) {
+				Integer id=rs.getInt("id");
+				String firstname = rs.getString("firstname");
+				String lastname = rs.getString("lastname");
+				String email = rs.getString("email");
+				String address = rs.getString("address");
+		results = new Client(id,firstname, lastname, email, address);
+			
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return results;
 	}
 }

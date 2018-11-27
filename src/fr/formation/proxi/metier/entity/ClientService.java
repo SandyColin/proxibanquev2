@@ -29,5 +29,7 @@ public class ClientService {
 		 this.dao.update(client );
 	}
 	
-
+	public Client getOne(Integer idclient) {
+		return this.dao.read(idclient);
+	}
 }

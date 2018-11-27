@@ -18,8 +18,8 @@ public class EditServlet extends HttpServlet{
 @Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	Integer  id= Integer.parseInt(req.getParameter("id"));
-	ClientService.getInstance();
-	req.setAttribute("client", id);
+	Client modify =ClientService.getInstance().getOne(id);
+	req.setAttribute("client", modify);
 	this.getServletContext().getRequestDispatcher("/WEB-INF/edit.jsp").forward(req, resp);
 	}
 
