@@ -17,7 +17,7 @@ public class EditServlet extends HttpServlet{
 	
 @Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
+	this.getServletContext().getRequestDispatcher("/WEB-INF/edit.jsp").forward(req, resp);
 	}
 
 @Override
@@ -36,7 +36,7 @@ public class EditServlet extends HttpServlet{
 	ClientService service=ClientService.getInstance();
 	service.updateClient(id, firstname,lastname,email,address);
 	resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
-	this.getServletContext().getRequestDispatcher("/WEB-INF/edit.jsp").forward(req, resp);
+	//this.getServletContext().getRequestDispatcher("/WEB-INF/edit.jsp").forward(req, resp);
 
 	
 }
