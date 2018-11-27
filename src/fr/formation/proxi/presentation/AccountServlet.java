@@ -20,7 +20,7 @@ public class AccountServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer idclient =Integer.parseInt(req.getParameter("idclient"));
+		Integer idclient =Integer.parseInt(req.getParameter("id"));
 		AccountService as=AccountService.getInstance();
 		req.setAttribute("accounts", as.getAll(idclient));
 		this.getServletContext().getRequestDispatcher("/WEB-INF/account.jsp").forward(req, resp);
