@@ -63,8 +63,21 @@ public class AccountDao implements Dao<Account>{
 
 	@Override
 	public Account update(Account entity) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+            Statement st = this.mySqlConn.getConn().createStatement();
+            String queryNumber = String.format(SqlQueries.UPDATE_ACCOUNT, "Number", entity.getNumber(), entity.getId());
+            String queryBalance = String.format(SqlQueries.UPDATE_ACCOUNT, "Balance", entity.getBalance(), entity.getId());
+            String querySavings = String.format(SqlQueries.UPDATE_ACCOUNT, "Savingsl", entity.isSavings(), entity.getId());
+            st.execute(queryNumber);
+            st.execute(queryBalance);
+            st.execute(querySavings);
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+	
+	
+	return entity;
 	}
 
 	@Override
