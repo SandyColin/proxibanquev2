@@ -114,7 +114,7 @@
  <div class="monindex">
  	 	<form method="post" action="">
 			<label>Nom</label><input type="text" value="${client.lastname}"/> 
-			<label>Prénom</label><input type="text" value="${client.lastname}"/> 
+			<label>Prénom</label><input type="text" value="${client.firstname}"/> 
 		</form>
 		<table class="table table-hover">
 			<caption>Liste des comptes </caption>
