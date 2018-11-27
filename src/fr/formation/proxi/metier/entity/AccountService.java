@@ -29,10 +29,11 @@ private static final AccountService INSTANCE = new AccountService();
 		Account debit = this.dao.read(iddebit);
 		Account credit = this.dao.read(idcredit);
 		Float soldeDispo = debit.getBalance();
+		Float soldeCredit= credit.getBalance();
 		if (soldeDispo-montant<0) return false;
 		else {
 			debit.setBalance(soldeDispo-montant);
-			credit.setBalance(soldeDispo+montant);
+			credit.setBalance(soldeCredit+montant);
 			
 			this.updateAccount(debit);
 			this.updateAccount(credit);
