@@ -39,7 +39,7 @@ public class AccountDao implements Dao<Account>{
 
 
 
-	public List<Account> read(Integer idclient) {
+	public List<Account> read1(Integer idclient) {
 		List<Account> results = new ArrayList<>();
 		try {
 			Statement st = this.mySqlConn.getConn().createStatement();
@@ -62,6 +62,12 @@ public class AccountDao implements Dao<Account>{
 
 	@Override
 	public Account update(Account entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Account read(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
