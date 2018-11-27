@@ -39,17 +39,17 @@ public class AccountDao implements Dao<Account>{
 
 
 
-	@Override
-	public List<Account> read(String id) {
+	public List<Account> read(Integer idclient) {
 		List<Account> results = new ArrayList<>();
 		try {
 			Statement st = this.mySqlConn.getConn().createStatement();
-			ResultSet rs = st.executeQuery(String.format(SqlQueries.READ_ACCOUNT, id));
+			ResultSet rs = st.executeQuery(String.format(SqlQueries.READ_ACCOUNT, idclient));
 			while (rs.next()) {
+				Integer id=rs.getInt("id");
 				String number = rs.getString("number");
 				Float balance = rs.getFloat("balance");
 				boolean savings = rs.getBoolean("savings");
-				results.add(new Account(number, balance, savings));
+				results.add(new Account(id, number, balance, savings));
 
 			}
 		} catch (SQLException e) {

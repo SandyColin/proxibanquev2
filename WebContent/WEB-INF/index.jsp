@@ -111,7 +111,7 @@
       </div>
     </section>
     <!-- Liste des clients -->
-    <div class="monindex">
+    <div class="monindex" >
 		<table class="table table-hover">
 			<caption>Liste des clients </caption>
 			<thead>
@@ -146,17 +146,17 @@
 			</tfoot>
 		</table>
 	</div>
-	<div class="monindex">
+	<div class="monindex" >
 		<form method="post" action="">
-			<div>
-			<label for="idclient">Selectionner le client n°</label>
-			<select name="idclient" id="idclient">
+			<div style="justify-content : center">
+			<label for="id">Selectionner le client n°</label>
+			<select name="id" id="id">
 				<c:forEach var="client" items ="${clients}"> 
-					<option value="idclient">${client.id}</option>
+					<option value="${client.id}">${client.firstname} ${client.lastname}</option>
 				</c:forEach>	
 			</select>
 			</div>
-			<div>
+			<div style="justify-content : center">
 			<label for="action1">Selectionner une action</label>
 			<select name="action1" id="action1">
 				<option value="edit">Modifier les infos du client</option>

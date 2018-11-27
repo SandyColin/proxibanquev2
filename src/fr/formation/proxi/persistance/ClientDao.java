@@ -58,8 +58,9 @@ private final MySqlConnection mySqlConn;
 		return entity;
 	}
 	
+	
 	@Override
-	public List<Client> read(String id) {
+	public List<Client> read(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

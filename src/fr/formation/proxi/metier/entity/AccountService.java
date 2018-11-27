@@ -21,8 +21,16 @@ private static final AccountService INSTANCE = new AccountService();
 	}
 	
 	
-	public List<Account> getAll(String id) {  
+	public List<Account> getAll(Integer id) {  
 		return this.dao.read(id); 
 	}
+	public boolean transfer() {
+		float montant;
+		if (AccountDao.getBalance()-montant>0) return true;
+				
+		else
+		return false;
+		
 	
+	}
 }
